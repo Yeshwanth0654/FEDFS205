@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let numbers = [10, 20, 30, 40];
+
+document.write("<h2>Standard for loop </h2>");
+for (let i = 0; i < numbers.length; i++) {
+    document.write("Index" + i + "=" + numbers[i] + "<br>");
+}
+document.write("<br>");
+
+document.write("<h2>for....in loop</h2>");
+for (let index in numbers) {
+    document.write("Index" + index + "=" + numbers[index] + "<br>");
+}
+document.write("<br>");
+
+document.write("<h2>Of loop</h2>");
+for (let value of numbers) {
+    document.write("value= " + value + "<br>");
+}
+document.write("<br>");
+// example with objects
+document.write("<h2> for..... of with string</h2>");
+let word="Hello";
+for(let char of word){
+    document.write(char+"<br>");
+}
+let person = { name: "Alice", age: 25, city: "Delhi" };
+
+document.write("<h2>forEach() with Object.entries()</h2>");
+Object.entries(person).forEach(([key, value]) => {
+    document.write(key + " = " + value + "<br>");
+});
+
+
+
+                
+    </script>
+    
+</body>
+</html>

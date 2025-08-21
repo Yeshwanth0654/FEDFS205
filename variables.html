@@ -1,0 +1,63 @@
+<html>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Variables</title>
+    </head>
+    <body>
+        <script>
+            var x=100;
+            document.write(x,"<br>");
+            var x=200;
+            document.write(x+x,"<br>");
+            let y=300;
+            document.write(y,"<br>");
+            let z=30; //global Declaration
+            document.write(z,"<br>");
+            {
+                let z=40; //local Declaration
+                document.write(z,"<br>");
+            }
+            document.write(z,"<br>");
+            const i=25;
+            document.write(i,"<br>");
+            {
+                const i=45;
+                document.write(i,"<br>");
+            }
+            
+            let a=10;
+            let b=0.2;
+            let c=true;
+            d="yashwanth";
+            e=null;
+            document.write(typeof(a));
+            document.write(typeof(b));
+            document.write(typeof(c));
+            document.write(typeof(d));
+            document.write(typeof(e));
+            var m=50;
+            document.write(m,"<br>");
+            m+=10;
+            n=5;
+            n++;
+            document.write(n,"<br>");
+            document.write(m,"<br>");
+            function kl_fun(){
+                document.writeln("this call is from kl_fun()");
+            }
+            kl_fun();
+            document.write(typeof 100,"<br>");
+            document.write(typeof 12.543,"<br>");
+            document.write(typeof "Yeshwanth","<br>");
+            document.write(typeof [],"<br>");
+            document.write(typeof {},"<br>");
+            document.write(typeof kl_fun(),"<br>");
+            document.write(typeof false,"<br>");
+            document.write(typeof 100n,"<br>");
+        </script>
+    </body>
+    </html>
+</html>
