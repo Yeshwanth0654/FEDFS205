@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>JavaScript Function Types Demo</title>
   <style>
     body {
@@ -47,9 +49,11 @@
 
   <script>
     const outputDiv = document.getElementById("output");
+
     function show(msg) {
       outputDiv.innerText += msg + "\n";
     }
+
     function clearOutput() {
       outputDiv.innerText = "";
     }
@@ -65,7 +69,7 @@
 
     // 2. Function Expression
     const greetUser = function(name) {
-      return Welcome, ${name}!;
+      return `Welcome, ${name}!`; // Fixed template string
     };
     function runExpression() {
       clearOutput();
