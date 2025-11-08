@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "exercise11-next-mongo",
   "private": true,
   "scripts": {
@@ -11,5 +12,25 @@
     "next": "14.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"
+=======
+  "name": "exercise10-feedback",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "start": "vite"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.2.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-redux": "^9.0.0",
+    "react-router-dom": "^7.9.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.0.0",
+    "vite": "^5.0.0"
+>>>>>>> c2a4845ae85d07a52b602bb8ed86a982266a8b9d
   }
 }
