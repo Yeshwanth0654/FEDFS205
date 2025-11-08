@@ -1,0 +1,47 @@
+<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form demo</title>
+</head>
+<body>
+    <form action="success.html">
+        <caption> Student Registration Sytem </caption> <br> <br>
+        <label for="fn"> First name: </label> 
+        <input type="text" id="fn" name="first name" required> <br>
+        <label for="ln"> Last name: </label> 
+        <input type="text" id="ln" name="Last name" required> <br>
+         <label for="gn"> Gender</label> 
+        <input type="radio" name="gender" value="Male">Male  
+        <input type="radio" name="gender" value="Female">Female <br>
+        <label> Email: </label>   
+        <input type="email" required> <br>
+        <label> Contact: </label>
+        <input type="tel" pattern="[0-9]{10}" >  <br>
+        <label> Date of Birth: </label>
+        <input type="date" required> <br>
+        <label> Address: </label> 
+        <textarea rows="7" required> </textarea> <br>
+        <label> Languages Known:</label>
+        <input type="checkbox" value="Telugu">Telugu
+        <input type="checkbox" value="English">English
+        <input type="checkbox" value="Hindi">Hindi
+        <input type="checkbox" value="Odia">Odia
+        <input type="checkbox" value="Japense">Japanese  <br>
+        <label> Branch: </label>
+        <select required> 
+            <option value="CSE">CSE</option> 
+            <option value="ECE">ECE</option> 
+            <option value="EEE">EEE</option> 
+            <option value="AIDS">AIDS</option> 
+            <option value="MECH">MECH</option> 
+            <option value="CIVIL">CIVIL</option> 
+        </select> <br>
+        <label> Upload Resume:</label>
+        <input type="file"> <br>
+        <button> Submit </button>
+    </form>
+</body>
+</html>
