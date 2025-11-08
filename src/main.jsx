@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -13,3 +14,11 @@ createRoot(document.getElementById("root")).render(
     </Routes>
   </BrowserRouter>
 );
+=======
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import App from './App';
+import './styles.css';
+
+createRoot(document.getElementById('root')).render(<App />);
+>>>>>>> 8a1387201dec99922ab8924da0e980ecb2903eef
