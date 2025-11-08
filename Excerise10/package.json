@@ -1,4 +1,18 @@
 {
+<<<<<<< HEAD
+  "name": "exercise11-next-mongo",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "mongoose": "^8.0.0",
+    "next": "14.0.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+=======
   "name": "exercise10-feedback",
   "private": true,
   "type": "module",
@@ -17,5 +31,6 @@
   "devDependencies": {
     "@vitejs/plugin-react": "^5.0.0",
     "vite": "^5.0.0"
+>>>>>>> c2a4845ae85d07a52b602bb8ed86a982266a8b9d
   }
 }

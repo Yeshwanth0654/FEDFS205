@@ -1,5 +1,6 @@
 body {
   font-family: Arial, sans-serif;
+<<<<<<< HEAD
   background: #f4f4f8;
   margin: 0;
   padding: 20px;
@@ -28,4 +29,37 @@ a {
 }
 a:hover {
   text-decoration: underline;
+=======
+  padding: 20px;
+  background: #f5f6fa;
+}
+.app {
+  max-width: 600px;
+  margin: auto;
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+input {
+  padding: 8px;
+  margin-right: 8px;
+}
+button {
+  padding: 8px 14px;
+  border: none;
+  background: #4f46e5;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+button:hover {
+  background: #4338ca;
+}
+li {
+  margin: 8px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+>>>>>>> 8a1387201dec99922ab8924da0e980ecb2903eef
 }
