@@ -1,14 +1,23 @@
 import { Link } from 'react-router-dom';
 
-export default function Navbar() {
+function Navbar() {
   return (
-    <header style={{ padding: '0.75rem 1rem', borderBottom: '1px solid #eee' }}>
-      <nav style={{ display: 'flex', gap: '1rem' }}>
-        <Link to="/login">Login</Link>
-        <Link to="/student">Student</Link>
-        <Link to="/faculty">Faculty</Link>
-        <Link to="/admin">Admin</Link>
-      </nav>
-    </header>
+    <nav style={{
+      backgroundColor: 'var(--primary)',
+      padding: '1rem',
+      display: 'flex',
+      justifyContent: 'space-between',
+      color: 'white'
+    }}>
+      <h2>Student Feedback System</h2>
+      <div>
+        <Link to="/" style={{ color: 'white', marginRight: '1rem' }}>Login</Link>
+        <Link to="/feedback" style={{ color: 'white', marginRight: '1rem' }}>Feedback</Link>
+        <Link to="/results" style={{ color: 'white', marginRight: '1rem' }}>Results</Link>
+        <Link to="/admin" style={{ color: 'white' }}>Admin</Link>
+      </div>
+    </nav>
   );
 }
+
+export default Navbar;

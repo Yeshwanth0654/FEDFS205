@@ -1,60 +1,62 @@
-import { useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { getStore, updateStore } from '../services/storage.js';
+import { addFeedback } from '../services/storage';
 
-export default function FeedbackForm() {
-  const { courseId } = useParams();
-  const navigate = useNavigate();
-  const { templates } = getStore();
-  const template = templates[0] || {
-    id: 't1',
-    name: 'Default Template',
-    questions: [
-      { id: 'q1', text: 'Clarity of instruction', type: 'scale' },
-      { id: 'q2', text: 'Course materials quality', type: 'scale' },
-      { id: 'q3', text: 'Comments', type: 'text' },
-    ]
-  };
+const questions = [
+  { id: 'q1', text: 'How clear was the lecture content?', type: 'scale' },
+  { id: 'q2', text: 'How well did the instructor explain the concepts?', type: 'scale' },
+  { id: 'q3', text: 'Was the pace of the lecture appropriate?', type: 'scale' },
+  { id: 'q4', text: 'How engaging was the lecture delivery?', type: 'scale' },
+  { id: 'q5', text: 'Did the instructor encourage student participation?', type: 'scale' },
+  { id: 'q6', text: 'How well were doubts and questions addressed?', type: 'scale' },
+  { id: 'q7', text: 'Was the use of teaching aids effective?', type: 'scale' },
+  { id: 'q8', text: 'What did you like most about the lecture?', type: 'text' },
+  { id: 'q9', text: 'What could be improved in future sessions?', type: 'text' },
+  { id: 'q10', text: 'Any additional comments or suggestions?', type: 'text' },
+];
 
-  const [answers, setAnswers] = useState(
-    template.questions.map(q => ({ qId: q.id, value: q.type === 'scale' ? 3 : '' }))
-  );
-
-  const setAnswer = (qId, value) =>
-    setAnswers(prev => prev.map(a => a.qId === qId ? { ...a, value } : a));
-
-  const onSubmit = (e) => {
+function FeedbackForm() {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const studentId = JSON.parse(localStorage.getItem('sfs_session'))?.username || 'anonymous';
-    updateStore(s => {
-      s.feedback.push({ id: crypto.randomUUID(), courseId, studentId, answers });
-      return s;
-    });
+    const formData = new FormData(e.target);
+    const answers = questions.map(q => ({
+      id: q.id,
+      value: formData.get(q.id)
+    }));
+    addFeedback({ courseId: 'demo-course', answers });
     alert('Feedback submitted!');
-    navigate(`/courses/${courseId}/results`);
+    e.target.reset();
   };
 
   return (
-    <section>
-      <h2>Submit Feedback</h2>
-      <form onSubmit={onSubmit}>
-        {template.questions.map(q => (
-          <div key={q.id}>
-            <label><strong>{q.text}</strong></label>
+    <div style={{
+      backgroundColor: 'white',
+      padding: '2rem',
+      margin: '2rem auto',
+      maxWidth: '600px',
+      borderRadius: '8px',
+      boxShadow: '0 0 10px rgba(0,0,0,0.1)'
+    }}>
+      <h3>Course Feedback</h3>
+      <form onSubmit={handleSubmit}>
+        {questions.map(q => (
+          <div key={q.id} style={{ marginBottom: '1rem' }}>
+            <label>{q.text}</label><br />
             {q.type === 'scale' ? (
-              <select value={answers.find(a=>a.qId===q.id).value}
-                      onChange={e=>setAnswer(q.id, e.target.value)}>
-                {[1,2,3,4,5].map(n => <option key={n} value={n}>{n}</option>)}
-              </select>
+              <input type="range" name={q.id} min="1" max="5" required />
             ) : (
-              <textarea rows="3"
-                        value={answers.find(a=>a.qId===q.id).value}
-                        onChange={e=>setAnswer(q.id, e.target.value)} />
+              <textarea name={q.id} rows="3" style={{ width: '100%' }} required />
             )}
           </div>
         ))}
-        <button type="submit">Submit</button>
+        <button type="submit" style={{
+          backgroundColor: 'var(--accent)',
+          color: 'white',
+          padding: '0.5rem 1rem',
+          border: 'none',
+          borderRadius: '4px'
+        }}>Submit</button>
       </form>
-    </section>
+    </div>
   );
 }
+
+export default FeedbackForm;

@@ -1,8 +1,17 @@
-export default function AdminPanel() {
+function AdminPanel() {
   return (
-    <section>
-      <h2>Admin Panel</h2>
-      <p>Here you’ll be able to manage courses and templates (coming soon).</p>
-    </section>
+    <div style={{
+      backgroundColor: 'white',
+      padding: '2rem',
+      margin: '2rem auto',
+      maxWidth: '600px',
+      borderRadius: '8px',
+      textAlign: 'center'
+    }}>
+      <h3>Admin Panel</h3>
+      <p>Course and template management coming soon.</p>
+    </div>
   );
 }
+
+export default AdminPanel;

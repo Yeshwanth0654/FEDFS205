@@ -1,37 +1,71 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export default function Login() {
+function Login() {
   const [username, setUsername] = useState('');
   const [role, setRole] = useState('student');
   const navigate = useNavigate();
 
-  const onSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if (!username.trim()) return alert('Enter a username');
-    if (role === 'student') navigate('/student');
-    if (role === 'faculty') navigate('/faculty');
-    if (role === 'admin') navigate('/admin');
+
+    // store a tiny user object so other pages/components can read it if needed
+    const user = { username: username || 'Anonymous', role };
+    try {
+      sessionStorage.setItem('user', JSON.stringify(user));
+    } catch (err) {
+      // ignore storage errors - app will still navigate
+    }
+
+    // role-based navigation
+    if (role === 'student') {
+      navigate('/feedback');
+    } else if (role === 'faculty') {
+      navigate('/results');
+    } else if (role === 'admin') {
+      navigate('/admin');
+    } else {
+      navigate('/');
+    }
   };
 
   return (
-    <section>
-      <h2>Login</h2>
-      <form onSubmit={onSubmit}>
-        <label>
-          Username
-          <input value={username} onChange={(e) => setUsername(e.target.value)} />
-        </label>
-        <label>
-          Role
-          <select value={role} onChange={(e) => setRole(e.target.value)}>
-            <option value="student">Student</option>
-            <option value="faculty">Faculty</option>
-            <option value="admin">Admin</option>
-          </select>
-        </label>
-        <button type="submit">Enter</button>
+    <div style={{
+      backgroundColor: 'white',
+      padding: '2rem',
+      margin: '2rem auto',
+      maxWidth: '400px',
+      borderRadius: '8px',
+      boxShadow: '0 0 10px rgba(0,0,0,0.1)'
+    }}>
+      <h3>Login</h3>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Username "
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          style={{ width: '100%', marginBottom: '1rem' }}
+        />
+        <select
+          value={role}
+          onChange={(e) => setRole(e.target.value)}
+          style={{ width: '100%', marginBottom: '1rem' }}
+        >
+          <option value="student">Student</option>
+          <option value="faculty">Faculty</option>
+          <option value="admin">Admin</option>
+        </select>
+        <button type="submit" style={{
+          backgroundColor: 'var(--primary)',
+          color: 'white',
+          padding: '0.5rem 1rem',
+          border: 'none',
+          borderRadius: '4px'
+        }}>Login</button>
       </form>
-    </section>
+    </div>
   );
 }
+
+export default Login;
